@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.model.Member;
 import com.example.demo.repository.MemberRepository;
 import org.springframework.stereotype.Service;
 
@@ -14,12 +15,11 @@ public class MemberService {
         this.repository = repository;
     }
 
-    public String add(String name){
-        repository.save(name);
-        return name;
+    public Member add(String name){
+        return repository.save(name);
     }
 
-    public List<String> getAll() {
+    public List<Member> getAll() {
         return repository.findAll();
     }
 }

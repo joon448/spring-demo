@@ -1,19 +1,22 @@
 package com.example.demo.repository;
 
+import com.example.demo.model.Member;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 
 @Repository
 public class MemberRepository {
-    private final List<String> members = new ArrayList<>();
+    private final Map<Long, Member> store = new HashMap<>();
+    private long sequence = 0L;
 
-    public void save(String name){
-        members.add(name);
+    public Member save(String name){
+        Member member = new Member(++sequence, name);
+        store.put(member.getId(), member);
+        return member;
     }
 
-    public List<String> findAll(){
-        return members;
+    public List<Member> findAll(){
+        return new ArrayList<>(store.values());
     }
 }

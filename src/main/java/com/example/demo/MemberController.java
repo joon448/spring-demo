@@ -1,10 +1,11 @@
 package com.example.demo;
 
+import com.example.demo.model.Member;
 import com.example.demo.dto.MemberDto;
 import com.example.demo.service.MemberService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
+import java.util.List;
 
 @RestController
 public class MemberController {
@@ -15,13 +16,12 @@ public class MemberController {
     }
 
     @PostMapping("/members")
-    public String addMember(@RequestBody MemberDto dto) {
-        String savedName = service.add(dto.getName());
-        return "저장 완료: " + savedName;
+    public Member addMember(@RequestBody MemberDto dto) {
+        return service.add(dto.getName());
     }
 
     @GetMapping("/members")
-    public List<String> getMembers(){
+    public List<Member> getMembers(){
         return service.getAll();
     }
 }
