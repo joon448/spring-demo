@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.dto.MemberDto;
 import com.example.demo.service.MemberService;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,8 +15,8 @@ public class MemberController {
     }
 
     @PostMapping("/members")
-    public String addMember(@RequestBody String name){
-        String savedName = service.add(name);
+    public String addMember(@RequestBody MemberDto dto) {
+        String savedName = service.add(dto.getName());
         return "저장 완료: " + savedName;
     }
 
