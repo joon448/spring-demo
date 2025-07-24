@@ -29,4 +29,9 @@ public class MemberController {
     public Member getMember(@PathVariable Long id){
         return service.getById(id);
     }
+
+    @PutMapping("/members/{id}")
+    public Member updateMember(@PathVariable Long id, @RequestBody MemberDto dto){
+        return service.update(id, dto.getName());
+    }
 }

@@ -26,4 +26,10 @@ public class MemberService {
     public Member getById(Long id){
         return repository.findById(id).orElseThrow(()-> new RuntimeException("해당 회원이 없습니다."));
     }
+
+    public Member update(Long id, String name){
+        Member member = repository.findById(id).orElseThrow(()-> new RuntimeException("해당 회원이 없습니다."));
+        member.setName(name);
+        return repository.save(member);
+    }
 }
