@@ -1,12 +1,17 @@
 package com.example.demo.model;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Member {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
 
     public Member(){}
-    public Member(Long id,String name){
-        this.id = id;
+    public Member(String name){
         this.name = name;
     }
 

@@ -1,7 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.model.Member;
-import com.example.demo.dto.MemberDto;
+import com.example.demo.model.MemberDto;
 import com.example.demo.service.MemberService;
 import org.springframework.web.bind.annotation.*;
 

@@ -16,7 +16,7 @@ public class MemberService {
     }
 
     public Member add(String name){
-        return repository.save(name);
+        return repository.save(new Member(name));
     }
 
     public List<Member> getAll() {
