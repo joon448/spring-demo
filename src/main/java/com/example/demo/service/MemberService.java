@@ -22,4 +22,8 @@ public class MemberService {
     public List<Member> getAll() {
         return repository.findAll();
     }
+
+    public Member getById(Long id){
+        return repository.findById(id).orElseThrow(()-> new RuntimeException("해당 회원이 없습니다."));
+    }
 }

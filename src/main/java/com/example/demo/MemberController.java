@@ -24,4 +24,9 @@ public class MemberController {
     public List<Member> getMembers(){
         return service.getAll();
     }
+
+    @GetMapping("/members/{id}")
+    public Member getMember(@PathVariable Long id){
+        return service.getById(id);
+    }
 }
