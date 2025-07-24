@@ -34,4 +34,10 @@ public class MemberController {
     public Member updateMember(@PathVariable Long id, @RequestBody MemberDto dto){
         return service.update(id, dto.getName());
     }
+
+    @DeleteMapping("/members/{id}")
+    public String deleteMember(@PathVariable Long id){
+        service.delete(id);
+        return "삭제 완료: " + id;
+    }
 }

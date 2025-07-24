@@ -32,4 +32,8 @@ public class MemberService {
         member.setName(name);
         return repository.save(member);
     }
+
+    public void delete(Long id){
+        repository.deleteById(id);
+    }
 }
